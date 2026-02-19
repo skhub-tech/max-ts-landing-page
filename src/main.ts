@@ -87,7 +87,7 @@ function injectNav(data: NavData) {
 function injectHero(data: HeroData) {
     if (!data) return;
     const badge = document.getElementById('hero-badge');
-    if (badge) badge.innerHTML = `<i data-lucide="star" class="w-4 h-4 mr-2 fill-current text-pink-500"></i><span>${data.badge}</span>`;
+    if (badge) badge.innerHTML = `<i data-lucide="star" class="w-4 h-4 fill-current text-pink-500"></i><span>${data.badge}</span>`;
     setText('hero-title', data.title, true);
     setText('hero-desc', data.description);
     setText('hero-primary-btn', `<i data-lucide="download" class="w-5 h-5 mr-2"></i> ${data.primaryButton}`, true);
