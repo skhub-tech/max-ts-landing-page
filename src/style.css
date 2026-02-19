@@ -244,10 +244,13 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 4rem;
+    position: relative;
+    z-index: 10;
   }
 
   .hero {
-    padding-top: 100px;
+    padding-top: 120px;
+    align-items: flex-start;
   }
 }
 
@@ -515,87 +518,87 @@ body {
 
 @media (max-width: 1024px) {
   .hero-mockup-wrapper {
-    height: 420px;
+    height: 500px;
   }
 
   .phones-carousel {
-    width: 130px;
-    height: 260px;
+    width: 180px;
+    height: 360px;
   }
 
   .p1 {
-    transform: rotateY(0deg) translateZ(110px);
+    transform: rotateY(0deg) translateZ(160px);
   }
 
   .p2 {
-    transform: rotateY(90deg) translateZ(110px);
+    transform: rotateY(90deg) translateZ(160px);
   }
 
   .p3 {
-    transform: rotateY(180deg) translateZ(110px);
+    transform: rotateY(180deg) translateZ(160px);
   }
 
   .p4 {
-    transform: rotateY(270deg) translateZ(110px);
+    transform: rotateY(270deg) translateZ(160px);
   }
 }
 
 @media (max-width: 640px) {
   .hero-mockup-wrapper {
-    height: 320px;
+    height: 480px;
   }
 
   .phones-carousel {
-    width: 100px;
-    height: 200px;
+    width: 160px;
+    height: 320px;
   }
 
   .p1 {
-    transform: rotateY(0deg) translateZ(85px);
+    transform: rotateY(0deg) translateZ(140px);
   }
 
   .p2 {
-    transform: rotateY(90deg) translateZ(85px);
+    transform: rotateY(90deg) translateZ(140px);
   }
 
   .p3 {
-    transform: rotateY(180deg) translateZ(85px);
+    transform: rotateY(180deg) translateZ(140px);
   }
 
   .p4 {
-    transform: rotateY(270deg) translateZ(85px);
+    transform: rotateY(270deg) translateZ(140px);
   }
 
   .phone-mockup {
-    border-width: 4px;
-    border-radius: 1.25rem;
+    border-width: 6px;
+    border-radius: 1.5rem;
   }
 }
 
 @media (max-width: 400px) {
   .hero-mockup-wrapper {
-    height: 280px;
+    height: 420px;
   }
 
   .phones-carousel {
-    width: 85px;
-    height: 170px;
+    width: 140px;
+    height: 280px;
   }
 
   .p1 {
-    transform: rotateY(0deg) translateZ(70px);
+    transform: rotateY(0deg) translateZ(120px);
   }
 
   .p2 {
-    transform: rotateY(90deg) translateZ(70px);
+    transform: rotateY(90deg) translateZ(120px);
   }
 
   .p3 {
-    transform: rotateY(180deg) translateZ(70px);
+    transform: rotateY(180deg) translateZ(120px);
   }
 
   .p4 {
-    transform: rotateY(270deg) translateZ(70px);
+    transform: rotateY(270deg) translateZ(120px);
   }
 }
 
