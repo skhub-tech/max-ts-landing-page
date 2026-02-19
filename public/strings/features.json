@@ -1,0 +1,48 @@
+{
+    "title": "Premium <span class=\"text-pink-500\">Features</span>",
+    "subtitle": "Discover the powerful tools that make InstaMax the ultimate social media companion.",
+    "items": [
+        {
+            "icon": "download",
+            "title": "Media Downloader",
+            "description": "Download photos, videos, stories, and reels directly to your device with a single tap.",
+            "color": "text-pink-500",
+            "bgColor": "bg-pink-500/10"
+        },
+        {
+            "icon": "ban",
+            "title": "Ad-Free Experience",
+            "description": "Browse your feed without interruptions. Remove all sponsored posts and ads completely.",
+            "color": "text-purple-500",
+            "bgColor": "bg-purple-500/10"
+        },
+        {
+            "icon": "eye",
+            "title": "Ghost Mode",
+            "description": "View stories, read messages, and type without anyone knowing. Stay completely invisible.",
+            "color": "text-indigo-500",
+            "bgColor": "bg-indigo-500/10"
+        },
+        {
+            "icon": "palette",
+            "title": "Customization",
+            "description": "Change themes, fonts, and colors. Make your Instagram look exactly how you want it.",
+            "color": "text-blue-500",
+            "bgColor": "bg-blue-500/10"
+        },
+        {
+            "icon": "shield",
+            "title": "Enhanced Privacy",
+            "description": "Disable typing indicators, hide view status, and protect your app with a custom PIN lock.",
+            "color": "text-green-500",
+            "bgColor": "bg-green-500/10"
+        },
+        {
+            "icon": "smartphone",
+            "title": "High Quality",
+            "description": "Upload and view photos and videos in maximum quality without compression.",
+            "color": "text-orange-500",
+            "bgColor": "bg-orange-500/10"
+        }
+    ]
+}

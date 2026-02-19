@@ -1,0 +1,26 @@
+{
+    "title": "Frequently Asked <span class=\"gradient-text\">Questions</span>",
+    "subtitle": "Got questions? We've got answers.",
+    "items": [
+        {
+            "question": "Is InstaMax Premium safe to use?",
+            "answer": "Yes, InstaMax is built with security in mind. We use advanced encryption and anti-ban technology to ensure your account remains safe and secure."
+        },
+        {
+            "question": "Will I get banned for using this?",
+            "answer": "InstaMax includes built-in anti-ban protection. However, we always recommend following the platform's community guidelines to minimize any risk."
+        },
+        {
+            "question": "How do I update the app?",
+            "answer": "You can always find the latest version on our website. Simply download the new APK and install it over the old one."
+        },
+        {
+            "question": "Do I need to uninstall the original Instagram?",
+            "answer": "No, InstaMax can be installed alongside the original Instagram app without any issues."
+        },
+        {
+            "question": "Is it available for iOS?",
+            "answer": "Currently, InstaMax is only available for Android devices. We are working on an iOS version for the future."
+        }
+    ]
+}

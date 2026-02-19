@@ -1,0 +1,21 @@
+{
+    "title": "How to <span class=\"gradient-text\">Install</span>",
+    "subtitle": "Get started in less than 2 minutes.",
+    "steps": [
+        {
+            "icon": "download",
+            "title": "Download APK",
+            "description": "Click the download button to get the latest InstaMax Premium APK file."
+        },
+        {
+            "icon": "settings",
+            "title": "Enable Unknown Sources",
+            "description": "Go to Settings > Security and enable installation from unknown sources."
+        },
+        {
+            "icon": "check-circle",
+            "title": "Install & Enjoy",
+            "description": "Open the downloaded file, install it, and log in to your account."
+        }
+    ]
+}

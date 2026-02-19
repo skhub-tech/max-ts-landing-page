@@ -1,0 +1,35 @@
+{
+    "adLink": "https://intermediategillsevent.com/p5pxbfuj?key=90cc97de91b868633d518a18d25481d0",
+    "products": {
+        "instamax": {
+            "name": "InstaMax",
+            "desc": "The ultimate Instagram experience with privacy and downloader features.",
+            "versions": [
+                {
+                    "label": "Download Unclone version",
+                    "link": "https://example.com/instamax-unclone.apk",
+                    "filename": "InstaMax_Unclone_v8.5.0.apk",
+                    "size": "64.2 MB"
+                },
+                {
+                    "label": "Download Clone version",
+                    "link": "https://example.com/instamax-clone.apk",
+                    "filename": "InstaMax_Clone_v8.5.0.apk",
+                    "size": "64.8 MB"
+                }
+            ]
+        },
+        "instafuse": {
+            "name": "InstaFuse",
+            "desc": "Advanced features for Instagram with enhanced media tools.",
+            "link": "https://example.com/instafuse.apk",
+            "filename": "InstaFuse_Premium_v5.2.0.apk",
+            "size": "42.5 MB"
+        }
+    },
+    "modal": {
+        "title": "Choose Product",
+        "desc": "Select the application you want to download.",
+        "hint": "Your download will begin after a short verification."
+    }
+}

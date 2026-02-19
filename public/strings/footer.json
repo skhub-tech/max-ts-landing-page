@@ -1,0 +1,16 @@
+{
+    "brand": "InstaMax Premium",
+    "subtitle": "The ultimate social media experience.",
+    "copyright": "© 2026 InstaMax Team.",
+    "disclaimer": "Not affiliated with Instagram or Meta.",
+    "socials": [
+        {
+            "icon": "instagram",
+            "href": "https://www.instagram.com/sahitya_000/"
+        },
+        {
+            "icon": "send",
+            "href": "https://t.me/sktech_000"
+        }
+    ]
+}
