@@ -234,16 +234,32 @@ body {
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-areas: "content mockup" "actions mockup";
+  gap: 0 4rem;
   align-items: center;
   width: 100%;
+}
+
+.hero-content {
+  grid-area: content;
+}
+
+.hero-mockup-wrapper {
+  grid-area: mockup;
+  align-self: center;
+}
+
+.hero-actions-container {
+  grid-area: actions;
+  align-self: start;
 }
 
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
+    grid-template-areas: "content" "mockup" "actions";
     text-align: center;
-    gap: 4rem;
+    gap: 3rem;
     position: relative;
     z-index: 10;
   }
@@ -251,6 +267,14 @@ body {
   .hero {
     padding-top: 160px;
     align-items: flex-start;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
   }
 }
 

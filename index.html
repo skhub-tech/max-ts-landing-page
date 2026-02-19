@@ -38,7 +38,7 @@
     <link rel="preload" href="/instamax-app.jpeg" as="image">
     <link rel="preload" href="/strings/hero.json" as="fetch" crossorigin>
     <link rel="stylesheet" href="/src/style.css">
-    
+
     <style>
         /* Critical Skeleton Styles Inline */
         .skeleton {
@@ -48,9 +48,30 @@
             border-radius: 8px;
             width: 100%;
         }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        .sk-text { height: 1em; margin-bottom: 0.5em; display: inline-block; background-color: rgba(255,255,255,0.05); }
-        .sk-btn { height: 3rem; width: 100%; border-radius: 9999px; background-color: rgba(255,255,255,0.05); }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .sk-text {
+            height: 1em;
+            margin-bottom: 0.5em;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .sk-btn {
+            height: 3rem;
+            width: 100%;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
 
@@ -86,28 +107,10 @@
                         <div class="skeleton sk-text" style="height: 3.5rem; width: 60%;"></div>
                     </h1>
                     <p class="hero-p" id="hero-desc">
-                        <div class="skeleton sk-text" style="height: 1.2rem; width: 100%;"></div>
-                        <div class="skeleton sk-text" style="height: 1.2rem; width: 90%;"></div>
-                        <div class="skeleton sk-text" style="height: 1.2rem; width: 70%;"></div>
+                    <div class="skeleton sk-text" style="height: 1.2rem; width: 100%;"></div>
+                    <div class="skeleton sk-text" style="height: 1.2rem; width: 90%;"></div>
+                    <div class="skeleton sk-text" style="height: 1.2rem; width: 70%;"></div>
                     </p>
-                    <div class="hero-actions">
-                        <button class="btn btn-primary download-trigger" id="hero-primary-btn">
-                            <span class="skeleton sk-text" style="width: 120px; background: transparent;"></span>
-                        </button>
-                        <button class="btn btn-outline" id="learn-more">
-                            <span class="skeleton sk-text" style="width: 100px; background: transparent;"></span>
-                        </button>
-                    </div>
-                    <div class="hero-trust">
-                        <div class="trust-item">
-                            <i data-lucide="shield" class="w-5 h-5 text-green-400"></i>
-                            <span id="trust-safe">Safe & Secure</span>
-                        </div>
-                        <div class="trust-item">
-                            <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
-                            <span id="trust-fast">Fast Download</span>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="hero-mockup-wrapper">
@@ -167,6 +170,27 @@
                                     <img src="/smartphoneback.jpeg" alt="Phone Back" class="back-image">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-actions-container">
+                    <div class="hero-actions">
+                        <button class="btn btn-primary download-trigger" id="hero-primary-btn">
+                            <span class="skeleton sk-text" style="width: 120px; background: transparent;"></span>
+                        </button>
+                        <button class="btn btn-outline" id="learn-more">
+                            <span class="skeleton sk-text" style="width: 100px; background: transparent;"></span>
+                        </button>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="trust-item">
+                            <i data-lucide="shield" class="w-5 h-5 text-green-400"></i>
+                            <span id="trust-safe">Safe & Secure</span>
+                        </div>
+                        <div class="trust-item">
+                            <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
+                            <span id="trust-fast">Fast Download</span>
                         </div>
                     </div>
                 </div>
