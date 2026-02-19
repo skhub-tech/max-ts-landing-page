@@ -34,7 +34,24 @@
     <!-- Icons (Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/instamax-app.jpeg" as="image">
+    <link rel="preload" href="/strings/hero.json" as="fetch" crossorigin>
     <link rel="stylesheet" href="/src/style.css">
+    
+    <style>
+        /* Critical Skeleton Styles Inline */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+            width: 100%;
+        }
+        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .sk-text { height: 1em; margin-bottom: 0.5em; display: inline-block; background-color: rgba(255,255,255,0.05); }
+        .sk-btn { height: 3rem; width: 100%; border-radius: 9999px; background-color: rgba(255,255,255,0.05); }
+    </style>
 </head>
 
 <body class="bg-black text-white selection:bg-pink-500/30">
@@ -62,30 +79,33 @@
             <div class="container hero-grid">
                 <div class="hero-content">
                     <div class="badge-v8" id="hero-badge">
-                        <!-- Injected -->
+                        <span class="skeleton sk-text" style="width: 150px;"></span>
                     </div>
                     <h1 class="hero-title" id="hero-title">
-                        <!-- Injected -->
+                        <div class="skeleton sk-text" style="height: 3.5rem; width: 80%;"></div>
+                        <div class="skeleton sk-text" style="height: 3.5rem; width: 60%;"></div>
                     </h1>
                     <p class="hero-p" id="hero-desc">
-                        <!-- Injected -->
+                        <div class="skeleton sk-text" style="height: 1.2rem; width: 100%;"></div>
+                        <div class="skeleton sk-text" style="height: 1.2rem; width: 90%;"></div>
+                        <div class="skeleton sk-text" style="height: 1.2rem; width: 70%;"></div>
                     </p>
                     <div class="hero-actions">
                         <button class="btn btn-primary download-trigger" id="hero-primary-btn">
-                            <!-- Injected -->
+                            <span class="skeleton sk-text" style="width: 120px; background: transparent;"></span>
                         </button>
                         <button class="btn btn-outline" id="learn-more">
-                            <!-- Injected -->
+                            <span class="skeleton sk-text" style="width: 100px; background: transparent;"></span>
                         </button>
                     </div>
                     <div class="hero-trust">
                         <div class="trust-item">
                             <i data-lucide="shield" class="w-5 h-5 text-green-400"></i>
-                            <span id="trust-safe"><!-- Injected --></span>
+                            <span id="trust-safe">Safe & Secure</span>
                         </div>
                         <div class="trust-item">
                             <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
-                            <span id="trust-fast"><!-- Injected --></span>
+                            <span id="trust-fast">Fast Download</span>
                         </div>
                     </div>
                 </div>
