@@ -1196,70 +1196,75 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
- / *   S k e l e t o n   L o a d i n g   * / 
- . s k e l e t o n   { 
-     b a c k g r o u n d :   l i n e a r - g r a d i e n t ( 9 0 d e g ,   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 0 5 )   2 5 % ,   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 1 )   5 0 % ,   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 0 5 )   7 5 % ) ; 
-     b a c k g r o u n d - s i z e :   2 0 0 v w   1 0 0 % ; 
-     a n i m a t i o n :   s h i m m e r   1 . 5 s   i n f i n i t e   l i n e a r ; 
- } 
- 
- @ k e y f r a m e s   s h i m m e r   { 
-     0 %   {   t r a n s f o r m :   t r a n s l a t e X ( - 1 0 0 % ) ;   } 
-     1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e X ( 1 0 0 % ) ;   } 
- } 
- 
- / *   S k e l e t o n   U t i l i t i e s   * / 
- . s k - t e x t   { 
-     h e i g h t :   c l a m p ( 1 r e m ,   2 v w ,   1 . 2 5 r e m ) ; 
-     w i d t h :   1 0 0 % ; 
-     b o r d e r - r a d i u s :   4 p x ; 
-     b a c k g r o u n d - c o l o r :   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ; 
-     m a r g i n - b o t t o m :   0 . 5 r e m ; 
- } 
- 
- . s k - b t n   { 
-     h e i g h t :   3 r e m ; 
-     w i d t h :   1 0 0 % ; 
-     b o r d e r - r a d i u s :   9 9 9 9 p x ; 
-     b a c k g r o u n d - c o l o r :   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ; 
- } 
- 
- . s k - t i t l e   { 
-     h e i g h t :   c l a m p ( 2 . 5 r e m ,   8 v w ,   4 . 5 r e m ) ; 
-     w i d t h :   8 0 % ; 
-     b a c k g r o u n d - c o l o r :   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 1 ) ; 
-     b o r d e r - r a d i u s :   8 p x ; 
-     m a r g i n - b o t t o m :   1 . 5 r e m ; 
- } 
- 
- . s k - i m g   { 
-     w i d t h :   1 0 0 % ; 
-     h e i g h t :   1 0 0 % ; 
-     b a c k g r o u n d - c o l o r :   # 1 f 2 9 3 7 ; 
-     b o r d e r - r a d i u s :   2 r e m ; 
- } 
- 
- / *   A d j u s t e d   C a r o u s e l   f o r   M o b i l e   ( P r e v e n t   C l i p p i n g )   * / 
- @ m e d i a   ( m a x - w i d t h :   6 4 0 p x )   { 
-     . p h o n e s - c a r o u s e l   { 
-         w i d t h :   1 4 0 p x ;   
-         h e i g h t :   2 8 0 p x ; 
-     } 
- 
-     . p 1   {   t r a n s f o r m :   r o t a t e Y ( 0 d e g )   t r a n s l a t e Z ( 1 2 0 p x ) ;   } 
-     . p 2   {   t r a n s f o r m :   r o t a t e Y ( 9 0 d e g )   t r a n s l a t e Z ( 1 2 0 p x ) ;   } 
-     . p 3   {   t r a n s f o r m :   r o t a t e Y ( 1 8 0 d e g )   t r a n s l a t e Z ( 1 2 0 p x ) ;   } 
-     . p 4   {   t r a n s f o r m :   r o t a t e Y ( 2 7 0 d e g )   t r a n s l a t e Z ( 1 2 0 p x ) ;   } 
- } 
-  
- 
- / *   S k e l e t o n   A n i m a t i o n   F i x   * / 
- @ k e y f r a m e s   s h i m m e r   { 
-     0 %   {   t r a n s f o r m :   t r a n s l a t e X ( - 1 0 0 % ) ;   } 
-     1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e X ( 1 0 0 % ) ;   } 
- } 
-  
- 
- / *   F i x   b r o k e n   s y n t a x   f r o m   p r e v i o u s   a p p e n d   * / 
-  
- 
+
+/* Skeleton Loading */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200vw 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Skeleton Utilities */
+.sk-text {
+  height: clamp(1rem, 2vw, 1.25rem);
+  width: 100%;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.sk-btn {
+  height: 3rem;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sk-title {
+  height: clamp(2.5rem, 8vw, 4.5rem);
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.sk-img {
+  width: 100%;
+  height: 100%;
+  background-color: #1f2937;
+  border-radius: 2rem;
+}
+
+/* Adjusted Carousel for Mobile (Prevent Clipping) */
+@media (max-width: 640px) {
+  .phones-carousel {
+    width: 140px;
+    height: 280px;
+  }
+
+  .p1 {
+    transform: rotateY(0deg) translateZ(120px);
+  }
+
+  .p2 {
+    transform: rotateY(90deg) translateZ(120px);
+  }
+
+  .p3 {
+    transform: rotateY(180deg) translateZ(120px);
+  }
+
+  .p4 {
+    transform: rotateY(270deg) translateZ(120px);
+  }
+}
