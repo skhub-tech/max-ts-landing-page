@@ -1,79 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-
-    <!-- Google Verification -->
     <meta name="google-site-verification" content="kZJ09YYPXnHNea3NU74pEQXgfojYgLqngZjLlsexnOA" />
-
-    <!-- Mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaMax - InstaFuse Download | Premium Instagram Experience</title>
 
-    <!-- Primary SEO -->
-    <title>InstaMax App Download – Enhanced Instagram Experience for Android</title>
-
+    <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Download InstaMax for Android and enjoy an enhanced Instagram experience with privacy tools, media features and smooth performance. Safe and fast download.">
-
+        content="Download InstaMax (InstaFuse) Premium APK. The best Instagram mod with no ads, media downloader, and ghost mode. Fast and secure official download for the latest version.">
     <meta name="keywords"
-        content="InstaMax download, InstaFuse download, InstaMax Android app, Instagram alternative Android, InstaMax APK official">
+        content="instamax download, instafuse download, instagram premium apk, instamax mod apk, ad-free instagram">
 
-    <meta name="author" content="InstaMax">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://instafuse.vercel.app/">
-
-    <!-- Icons -->
+    <!-- Icons & Favicon -->
     <link rel="icon" type="image/jpeg" href="/icon.jpeg">
     <link rel="apple-touch-icon" href="/icon.jpeg">
 
-    <!-- Open Graph (WhatsApp / Facebook) -->
-    <meta property="og:title" content="InstaMax Download for Android">
+    <!-- Social Media SEO (OG & Twitter) -->
+    <meta property="og:title" content="InstaMax - InstaFuse Download">
     <meta property="og:description"
-        content="Get InstaMax and enjoy a smoother Instagram experience with extra privacy, media tools and performance improvements.">
-    <meta property="og:image" content="https://instafuse.vercel.app/instamax-app.jpeg">
-    <meta property="og:url" content="https://instafuse.vercel.app/">
+        content="Download the ultimate Instagram mod with media downloader and ad-free experience.">
+    <meta property="og:image" content="/icon.jpeg">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="InstaMax">
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="InstaMax App Download">
-    <meta name="twitter:description"
-        content="Download InstaMax for Android with enhanced Instagram experience and privacy features.">
-    <meta name="twitter:image" content="https://instafuse.vercel.app/instamax-app.jpeg">
+    <meta name="twitter:title" content="InstaMax - InstaFuse Download">
+    <meta name="twitter:image" content="/icon.jpeg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Icons (Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Preload -->
+    <!-- Preload Critical Assets -->
     <link rel="preload" href="/instamax-app.jpeg" as="image">
     <link rel="preload" href="/strings/hero.json" as="fetch" crossorigin>
     <link rel="stylesheet" href="/src/style.css">
 
-    <!-- Structured Data (Safe for Google) -->
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MobileApplication",
+      "@type": "SoftwareApplication",
       "name": "InstaMax",
-      "operatingSystem": "Android",
+      "operatingSystem": "ANDROID",
       "applicationCategory": "SocialNetworkingApplication",
-      "description": "InstaMax is an Android application that enhances the Instagram experience with additional privacy controls, media tools, and customization options.",
-      "url": "https://instafuse.vercel.app/",
-      "image": "https://instafuse.vercel.app/instamax-app.jpeg",
-      "screenshot": "https://instafuse.vercel.app/screen2.jpeg",
+      "genre": "Social",
+      "description": "Download InstaMax, the ultimate Instagram mod with privacy features, media downloading, ad-free browsing, and exclusive customization options.",
+      "url": "https://instamax-app.vercel.app/",
+      "image": "https://instamax-app.vercel.app/instamax-app.jpeg",
+      "screenshot": "https://instamax-app.vercel.app/screen2.jpeg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "15420"
+      },
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.7",
-        "ratingCount": "12000"
       }
     }
     </script>
+
+    <style>
+        /* Critical Skeleton Styles Inline */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .sk-text {
+            height: 1em;
+            margin-bottom: 0.5em;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .sk-btn {
+            height: 3rem;
+            width: 100%;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white selection:bg-pink-500/30">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-fixed">
+        <div class="container container-nav">
+            <div class="logo-text" id="nav-logo">InstaMax</div>
+            <button class="btn-nav-download download-trigger" id="nav-download-btn">Download App</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- Animated Background Blobs -->
+            <div class="blob-wrapper">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge-v8" id="hero-badge">
+                        <span class="skeleton sk-text" style="width: 150px;"></span>
+                    </div>
+                    <h1 class="hero-title" id="hero-title">
+                        <div class="skeleton sk-text" style="height: 3.5rem; width: 80%;"></div>
+                        <div class="skeleton sk-text" style="height: 3.5rem; width: 60%;"></div>
+                    </h1>
+                    <p class="hero-p" id="hero-desc">
+                    <div class="skeleton sk-text" style="height: 1.2rem; width: 100%;"></div>
+                    <div class="skeleton sk-text" style="height: 1.2rem; width: 90%;"></div>
+                    <div class="skeleton sk-text" style="height: 1.2rem; width: 70%;"></div>
+                    </p>
+                </div>
+
+                <div class="hero-mockup-wrapper">
+                    <div class="phones-carousel">
+                        <!-- Phone 1 -->
+                        <div class="phone-mockup p1">
+                            <div class="phone-inner">
+                                <div class="phone-front">
+                                    <div class="phone-screen">
+                                        <div class="notch"></div>
+                                        <img src="/instamax-app.jpeg" alt="Screen 1" class="app-screenshot">
+                                    </div>
+                                </div>
+                                <div class="phone-back">
+                                    <img src="/smartphoneback.jpeg" alt="Phone Back" class="back-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phone 2 -->
+                        <div class="phone-mockup p2">
+                            <div class="phone-inner">
+                                <div class="phone-front">
+                                    <div class="phone-screen">
+                                        <div class="notch"></div>
+                                        <img src="/screen2.jpeg" alt="Screen 2" class="app-screenshot">
+                                    </div>
+                                </div>
+                                <div class="phone-back">
+                                    <img src="/smartphoneback.jpeg" alt="Phone Back" class="back-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phone 3 -->
+                        <div class="phone-mockup p3">
+                            <div class="phone-inner">
+                                <div class="phone-front">
+                                    <div class="phone-screen">
+                                        <div class="notch"></div>
+                                        <img src="/screen3.jpeg" alt="Screen 3" class="app-screenshot">
+                                    </div>
+                                </div>
+                                <div class="phone-back">
+                                    <img src="/smartphoneback.jpeg" alt="Phone Back" class="back-image">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phone 4 -->
+                        <div class="phone-mockup p4">
+                            <div class="phone-inner">
+                                <div class="phone-front">
+                                    <div class="phone-screen">
+                                        <div class="notch"></div>
+                                        <img src="/screen4.jpeg" alt="Screen 4" class="app-screenshot">
+                                    </div>
+                                </div>
+                                <div class="phone-back">
+                                    <img src="/smartphoneback.jpeg" alt="Phone Back" class="back-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-actions-container">
+                    <div class="hero-actions">
+                        <button class="btn btn-primary download-trigger" id="hero-primary-btn">
+                            <span class="skeleton sk-text" style="width: 120px; background: transparent;"></span>
+                        </button>
+                        <button class="btn btn-outline" id="learn-more">
+                            <span class="skeleton sk-text" style="width: 100px; background: transparent;"></span>
+                        </button>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="trust-item">
+                            <i data-lucide="shield" class="w-5 h-5 text-green-400"></i>
+                            <span id="trust-safe">Safe & Secure</span>
+                        </div>
+                        <div class="trust-item">
+                            <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
+                            <span id="trust-fast">Fast Download</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Native Ad Banner -->
+        <div class="ad-native-wrapper">
+            <script async="async" data-cfasync="false"
+                src="https://intermediategillsevent.com/09601e797b7eaf8fd0e3fc4d09c8f32c/invoke.js"></script>
+            <div id="container-09601e797b7eaf8fd0e3fc4d09c8f32c"></div>
+        </div>
+
+        <!-- Features Section -->
+        <section class="features" id="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="features-title"><!-- Injected --></h2>
+                    <p class="section-subtitle" id="features-subtitle"><!-- Injected --></p>
+                </div>
+                <div class="features-grid" id="features-container">
+                    <!-- Cards Injected Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section class="install">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="install-title"><!-- Injected --></h2>
+                    <p class="section-subtitle" id="install-subtitle"><!-- Injected --></p>
+                </div>
+                <div class="install-container-wrapper">
+                    <div class="install-connector"></div>
+                    <!-- Cards Injected Here -->
+                    <div id="install-container" class="contents"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container container-narrow">
+                <div class="section-header">
+                    <h2 class="section-title" id="faq-title"><!-- Injected --></h2>
+                    <p class="section-subtitle" id="faq-subtitle"><!-- Injected --></p>
+                </div>
+                <!-- Banner 728x90 Placement -->
+                <div class="ad-leaderboard-wrapper">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key': 'cea7bbb9761a69268d4ee3f2f6c10691',
+                            'format': 'iframe',
+                            'height': 90,
+                            'width': 728,
+                            'params': {}
+                        };
+                    </script>
+                    <script type="text/javascript"
+                        src="https://intermediategillsevent.com/cea7bbb9761a69268d4ee3f2f6c10691/invoke.js"></script>
+                </div>
+
+                <div class="faq-list" id="faq-container">
+                    <!-- Injected -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bottom-cta">
+            <div class="container">
+                <div class="cta-banner">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6" id="cta-title">Ready to upgrade?</h2>
+                    <p class="text-lg text-white/70 mb-8 max-w-xl mx-auto" id="cta-desc">Join millions of users and
+                        start your premium Instagram experience today.</p>
+                    <button class="btn btn-primary btn-lg download-trigger" id="cta-btn">
+                        <i data-lucide="download" class="w-6 h-6 mr-2"></i> Download InstaMax Now
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand" id="footer-brand-section">
+                    <h3 id="footer-brand"><!-- Injected --></h3>
+                    <p id="footer-subtitle"><!-- Injected --></p>
+                </div>
+                <div class="footer-socials" id="footer-socials">
+                    <!-- Injected -->
+                </div>
+                <div class="footer-credits" id="footer-credits">
+                    <p id="footer-copy"><!-- Injected --></p>
+                    <p id="footer-disclaimer"><!-- Injected --></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Modal -->
+    <div id="download-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close">&times;</button>
+            <div id="modal-selection-content" class="modal-content">
+                <h2 id="modal-title-select"
+                    class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent mb-2">
+                    Select Product</h2>
+                <p id="modal-desc-select" class="text-gray-400 mb-6">Choose which version you'd like to install.</p>
+
+                <div class="product-selector">
+                    <button class="btn btn-outline btn-block mb-3 product-btn" data-product="instamax">
+                        <i data-lucide="smartphone" class="w-5 h-5 mr-2"></i> Download InstaMax
+                    </button>
+                    <button class="btn btn-outline btn-block product-btn" data-product="instafuse">
+                        <i data-lucide="zap" class="w-5 h-5 mr-2"></i> Download InstaFuse
+                    </button>
+                </div>
+
+                <div id="version-selector"
+                    style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p id="versions-title" class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
+                        Available Versions:</p>
+                    <div id="versions-container"></div>
+                    <button id="back-to-products" class="text-xs text-gray-500 mt-4 hover:text-white transition-colors">
+                        <i data-lucide="arrow-left" class="inline w-3 h-3 mr-1"></i> Back to selection
+                    </button>
+                </div>
+            </div>
+
+            <div id="modal-initial-content" class="modal-content" style="display: none;">
+                <div class="success-icon-wrapper">
+                    <div
+                        class="p-5 rounded-full bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-white/10 shadow-lg shadow-pink-500/10">
+                        <i data-lucide="download" class="w-12 h-12 text-pink-500"></i>
+                    </div>
+                </div>
+                <h2 id="modal-title"
+                    class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                    <!-- Injected -->
+                </h2>
+                <p id="modal-desc" class="text-gray-400 mb-6"><!-- Injected --></p>
+                <div class="file-info-box">
+                    <div class="info-row">
+                        <span class="label">File Name:</span>
+                        <span class="val" id="modal-filename"><!-- Injected --></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Size:</span>
+                        <span class="val" id="modal-filesize"><!-- Injected --></span>
+                    </div>
+                </div>
+                <p class="modal-hint" id="modal-hint"><!-- Injected --></p>
+                <button class="btn btn-primary btn-block" id="start-step-download">
+                    <!-- Injected -->
+                </button>
+            </div>
+
+            <div id="modal-countdown-content" class="modal-content" style="display: none;">
+                <div class="countdown-box">
+                    <div class="timer-circle">
+                        <span id="countdown-timer">5</span>
+                    </div>
+                    <h3>Preparing your download...</h3>
+                    <p class="text-gray-400">Please stay on this page. Your download will start automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ad Scripts (Social Bar & Popunder) -->
+    <script type="text/javascript"
+        src="https://intermediategillsevent.com/35/41/e9/3541e932cb25237e89e4d40ce6461dff.js"></script>
+    <script type="text/javascript"
+        src="https://intermediategillsevent.com/3d/e9/92/3de99286ed88d0f96248de40236633b9.js"></script>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+        // Initial icon creation, will be re-run after dynamic injection
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
