@@ -40,6 +40,32 @@
     <link rel="preload" href="/strings/hero.json" as="fetch" crossorigin>
     <link rel="stylesheet" href="/src/style.css">
 
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "InstaMax",
+      "operatingSystem": "ANDROID",
+      "applicationCategory": "SocialNetworkingApplication",
+      "genre": "Social",
+      "description": "Download InstaMax, the ultimate Instagram mod with privacy features, media downloading, ad-free browsing, and exclusive customization options.",
+      "url": "https://instamax-app.vercel.app/",
+      "image": "https://instamax-app.vercel.app/instamax-app.jpeg",
+      "screenshot": "https://instamax-app.vercel.app/screen2.jpeg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "15420"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
     <style>
         /* Critical Skeleton Styles Inline */
         .skeleton {
