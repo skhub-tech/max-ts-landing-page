@@ -32,37 +32,62 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadStrings() {
     try {
+        const fetchJson = (url: string) => fetch(url).then(r => {
+            if (!r.ok) throw new Error(`Failed to load ${url}`);
+            return r.json();
+        });
+
         const [nav, hero, features, install, faq, footer, download] = await Promise.all([
-            fetch('/strings/nav.json').then(r => r.json()),
-            fetch('/strings/hero.json').then(r => r.json()),
-            fetch('/strings/features.json').then(r => r.json()),
-            fetch('/strings/install.json').then(r => r.json()),
-            fetch('/strings/faq.json').then(r => r.json()),
-            fetch('/strings/footer.json').then(r => r.json()),
-            fetch('/strings/download.json').then(r => r.json())
+            fetchJson('/strings/nav.json').catch(() => null),
+            fetchJson('/strings/hero.json').catch(() => null),
+            fetchJson('/strings/features.json').catch(() => null),
+            fetchJson('/strings/install.json').catch(() => null),
+            fetchJson('/strings/faq.json').catch(() => null),
+            fetchJson('/strings/footer.json').catch(() => null),
+            fetchJson('/strings/download.json').catch(() => null)
         ]);
 
-        downloadData = download;
-        injectNav(nav);
-        injectHero(hero);
-        injectFeatures(features);
-        injectInstall(install);
-        injectFAQ(faq);
-        injectFooter(footer);
-        injectModal(download);
+        if (download) downloadData = download;
+        if (nav) injectNav(nav);
+        if (hero) injectHero(hero);
+        if (features) injectFeatures(features);
+        if (install) injectInstall(install);
+        if (faq) injectFAQ(faq);
+        if (footer) injectFooter(footer);
+        if (download) injectModal(download);
+
+        // Remove any remaining skeletons if data is missing or after injection
+        setTimeout(cleanupSkeletons, 100);
+
     } catch (error) {
         console.error("Error loading strings:", error);
+        cleanupSkeletons();
     }
 }
 
+function cleanupSkeletons() {
+    document.querySelectorAll('.skeleton').forEach(el => {
+        el.classList.remove('skeleton');
+        (el as HTMLElement).style.animation = 'none';
+
+        // If it's a text placeholder, remove the background
+        // For now, removing the class stops the shimmer.
+        if (el.tagName === 'DIV' || el.tagName === 'SPAN') {
+            (el as HTMLElement).style.backgroundColor = 'transparent';
+        }
+    });
+}
+
 function injectNav(data: NavData) {
+    if (!data) return;
     setText('nav-logo', data.logo);
     setText('nav-download-btn', data.buttonText);
 }
 
 function injectHero(data: HeroData) {
+    if (!data) return;
     const badge = document.getElementById('hero-badge');
-    if (badge) badge.innerHTML = `<i data-lucide="star" class="w-3 h-3 mr-2 fill-current"></i><span>${data.badge}</span>`;
+    if (badge) badge.innerHTML = `<i data-lucide="star" class="w-4 h-4 mr-2 fill-current text-pink-500"></i><span>${data.badge}</span>`;
     setText('hero-title', data.title, true);
     setText('hero-desc', data.description);
     setText('hero-primary-btn', `<i data-lucide="download" class="w-5 h-5 mr-2"></i> ${data.primaryButton}`, true);
