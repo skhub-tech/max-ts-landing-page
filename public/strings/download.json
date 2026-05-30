@@ -8,13 +8,13 @@
                 {
                     "label": "Download Unclone version",
                     "link": "https://devuploads.com/u0soj1s5kmib",
-                    "filename": "InstaMax_Unclone_v15.0.apk",
+                    "filename": "InstaMax_Unclone_{version}.apk",
                     "size": "164.2 MB"
                 },
                 {
                     "label": "Download Clone version",
                     "link": "https://devuploads.com/uqwhio5zyfr2",
-                    "filename": "InstaMax_Clone_v15.0.apk",
+                    "filename": "InstaMax_Clone_{version}.apk",
                     "size": "164.8 MB"
                 }
             ]

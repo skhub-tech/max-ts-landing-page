@@ -1,6 +1,6 @@
 // Main functionality for InstaMax Landing Page - Multi-Product Support
 interface NavData { logo: string; buttonText: string; }
-interface HeroData { badge: string; title: string; description: string; primaryButton: string; secondaryButton: string; trust: { safe: string; fast: string; }; }
+interface HeroData { version?: string; badge: string; title: string; description: string; primaryButton: string; secondaryButton: string; trust: { safe: string; fast: string; }; }
 interface FeatureItem { icon: string; title: string; description: string; color: string; bgColor: string; }
 interface FeaturesData { title: string; subtitle: string; items: FeatureItem[]; }
 interface InstallStep { icon: string; title: string; description: string; }
@@ -47,14 +47,50 @@ async function loadStrings() {
             fetchJson('/strings/download.json').catch(() => null)
         ]);
 
-        if (download) downloadData = download;
-        if (nav) injectNav(nav);
-        if (hero) injectHero(hero);
-        if (features) injectFeatures(features);
-        if (install) injectInstall(install);
-        if (faq) injectFAQ(faq);
-        if (footer) injectFooter(footer);
-        if (download) injectModal(download);
+        let finalNav = nav;
+        let finalHero = hero;
+        let finalFeatures = features;
+        let finalInstall = install;
+        let finalFaq = faq;
+        let finalFooter = footer;
+        let finalDownload = download;
+
+        if (hero && hero.version) {
+            const version = hero.version;
+            const replacePlaceholders = (obj: any): any => {
+                if (typeof obj === 'string') {
+                    return obj.replace(/{version}/g, version);
+                }
+                if (Array.isArray(obj)) {
+                    return obj.map(item => replacePlaceholders(item));
+                }
+                if (typeof obj === 'object' && obj !== null) {
+                    const newObj: any = {};
+                    for (const key in obj) {
+                        newObj[key] = replacePlaceholders(obj[key]);
+                    }
+                    return newObj;
+                }
+                return obj;
+            };
+
+            finalNav = replacePlaceholders(nav);
+            finalHero = replacePlaceholders(hero);
+            finalFeatures = replacePlaceholders(features);
+            finalInstall = replacePlaceholders(install);
+            finalFaq = replacePlaceholders(faq);
+            finalFooter = replacePlaceholders(footer);
+            finalDownload = replacePlaceholders(download);
+        }
+
+        if (finalDownload) downloadData = finalDownload;
+        if (finalNav) injectNav(finalNav);
+        if (finalHero) injectHero(finalHero);
+        if (finalFeatures) injectFeatures(finalFeatures);
+        if (finalInstall) injectInstall(finalInstall);
+        if (finalFaq) injectFAQ(finalFaq);
+        if (finalFooter) injectFooter(finalFooter);
+        if (finalDownload) injectModal(finalDownload);
 
         // Remove any remaining skeletons if data is missing or after injection
         setTimeout(cleanupSkeletons, 100);
