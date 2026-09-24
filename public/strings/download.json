@@ -1,35 +1,59 @@
 {
     "adLink": "https://intermediategillsevent.com/p5pxbfuj?key=90cc97de91b868633d518a18d25481d0",
+    "fuse_version": "v5.4",
     "products": {
+        "instafuse": {
+            "name": "InstaFuse",
+            "sectionTitle": "InstaFuse Official",
+            "badge": "Recommended",
+            "desc": "Advanced features for Instagram with enhanced media tools.",
+            "versions": [
+                {
+                    "label": "Original Package Download",
+                    "sublabel": "Original Package (Unclone)",
+                    "tag": "Original",
+                    "link": "https://www.mediafire.com/file/cyeej3kus1jbtxg/InstaFuse_v5.4fixed.apk/file",
+                    "filename": "InstaFuse_Original_{fuse_version}.apk",
+                    "size": "160.5 MB"
+                },
+                {
+                    "label": "Clone Package Download",
+                    "sublabel": "Clone Package (Dual App)",
+                    "tag": "Clone",
+                    "link": "https://www.mediafire.com/file/cyeej3kus1jbtxg/InstaFuse_v5.4fixed.apk/file",
+                    "filename": "InstaFuse_Clone_{fuse_version}.apk",
+                    "size": "160.5 MB"
+                }
+            ]
+        },
         "instamax": {
             "name": "InstaMax",
+            "sectionTitle": "InstaMax Edition",
+            "badge": "Classic",
             "desc": "The ultimate Instagram experience with privacy and downloader features.",
             "versions": [
                 {
                     "label": "Download Unclone version",
+                    "sublabel": "Standard Unclone Package",
+                    "tag": "Unclone",
                     "link": "https://devuploads.com/u0soj1s5kmib",
                     "filename": "InstaMax_Unclone_{version}.apk",
                     "size": "164.2 MB"
                 },
                 {
                     "label": "Download Clone version",
+                    "sublabel": "Clone Package (Dual App)",
+                    "tag": "Clone",
                     "link": "https://devuploads.com/uqwhio5zyfr2",
                     "filename": "InstaMax_Clone_{version}.apk",
                     "size": "164.8 MB"
                 }
             ]
-        },
-        "instafuse": {
-            "name": "InstaFuse",
-            "desc": "Advanced features for Instagram with enhanced media tools.",
-            "link": "https://www.mediafire.com/file/cyeej3kus1jbtxg/InstaFuse_v5.4fixed.apk/file",
-            "filename": "InstaFuse_v5.4_fixed.apk",
-            "size": "160.5 MB"
         }
     },
     "modal": {
-        "title": "Choose Product",
-        "desc": "Select the application you want to download.",
+        "title": "Select Application",
+        "desc": "Choose which version you would like to download.",
         "hint": "Your download will begin after a short verification."
     }
 }

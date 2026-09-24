@@ -8,16 +8,18 @@ interface InstallData { title: string; subtitle: string; steps: InstallStep[]; }
 interface FAQItem { question: string; answer: string; }
 interface FAQData { title: string; subtitle: string; items: FAQItem[]; }
 interface FooterData { brand: string; subtitle: string; disclaimer: string; socials: { icon: string; href: string; }[]; copyright: string; }
-interface VersionInfo { label: string; link: string; filename: string; size: string; }
-interface ProductInfo { name: string; desc: string; link?: string; filename?: string; size?: string; versions?: VersionInfo[]; }
+interface VersionInfo { label: string; sublabel?: string; tag?: string; link: string; filename: string; size: string; }
+interface ProductInfo { name: string; sectionTitle?: string; badge?: string; desc: string; link?: string; filename?: string; size?: string; versions?: VersionInfo[]; }
 interface DownloadData {
     adLink: string;
+    fuse_version?: string;
     products: { [key: string]: ProductInfo };
     modal: { title: string; desc: string; hint: string; };
 }
 
 let downloadData: DownloadData;
 let selectedLink = "";
+let currentProductKey = "instafuse";
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadStrings();
@@ -55,33 +57,33 @@ async function loadStrings() {
         let finalFooter = footer;
         let finalDownload = download;
 
-        if (hero && hero.version) {
-            const version = hero.version;
-            const replacePlaceholders = (obj: any): any => {
-                if (typeof obj === 'string') {
-                    return obj.replace(/{version}/g, version);
-                }
-                if (Array.isArray(obj)) {
-                    return obj.map(item => replacePlaceholders(item));
-                }
-                if (typeof obj === 'object' && obj !== null) {
-                    const newObj: any = {};
-                    for (const key in obj) {
-                        newObj[key] = replacePlaceholders(obj[key]);
-                    }
-                    return newObj;
-                }
-                return obj;
-            };
+        const version = (hero && hero.version) || "v15.0";
+        const fuseVersion = (download && download.fuse_version) || "v5.1";
 
-            finalNav = replacePlaceholders(nav);
-            finalHero = replacePlaceholders(hero);
-            finalFeatures = replacePlaceholders(features);
-            finalInstall = replacePlaceholders(install);
-            finalFaq = replacePlaceholders(faq);
-            finalFooter = replacePlaceholders(footer);
-            finalDownload = replacePlaceholders(download);
-        }
+        const replacePlaceholders = (obj: any): any => {
+            if (typeof obj === 'string') {
+                return obj.replace(/{version}/g, version).replace(/{fuse_version}/g, fuseVersion);
+            }
+            if (Array.isArray(obj)) {
+                return obj.map(item => replacePlaceholders(item));
+            }
+            if (typeof obj === 'object' && obj !== null) {
+                const newObj: any = {};
+                for (const key in obj) {
+                    newObj[key] = replacePlaceholders(obj[key]);
+                }
+                return newObj;
+            }
+            return obj;
+        };
+
+        if (finalNav) finalNav = replacePlaceholders(nav);
+        if (finalHero) finalHero = replacePlaceholders(hero);
+        if (finalFeatures) finalFeatures = replacePlaceholders(features);
+        if (finalInstall) finalInstall = replacePlaceholders(install);
+        if (finalFaq) finalFaq = replacePlaceholders(faq);
+        if (finalFooter) finalFooter = replacePlaceholders(footer);
+        if (finalDownload) finalDownload = replacePlaceholders(download);
 
         if (finalDownload) downloadData = finalDownload;
         if (finalNav) injectNav(finalNav);
@@ -204,6 +206,17 @@ function injectModal(data: DownloadData) {
     setText('modal-title-select', data.modal.title);
     setText('modal-desc-select', data.modal.desc);
     setText('modal-hint', data.modal.hint);
+
+    if (data.products) {
+        if (data.products.instafuse) {
+            setText('instafuse-card-name', data.products.instafuse.name);
+            setText('instafuse-card-desc', data.products.instafuse.desc);
+        }
+        if (data.products.instamax) {
+            setText('instamax-card-name', data.products.instamax.name);
+            setText('instamax-card-desc', data.products.instamax.desc);
+        }
+    }
 }
 
 function setText(id: string, text: string, isHtml = false) {
@@ -231,17 +244,8 @@ function initDownloadLogic() {
     const versionSelector = document.getElementById('version-selector');
     const versionsContainer = document.getElementById('versions-container');
     const backBtn = document.getElementById('back-to-products');
+    const backToVersionsBtn = document.getElementById('back-to-versions');
     const startBtn = document.getElementById('start-step-download');
-
-    triggers.forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (modal) {
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                resetModal();
-            }
-        });
-    });
 
     function resetModal() {
         if (selectionContent) selectionContent.style.display = 'block';
@@ -252,65 +256,113 @@ function initDownloadLogic() {
         // Show product selection elements
         const title = document.getElementById('modal-title-select');
         const desc = document.getElementById('modal-desc-select');
-        const selector = document.querySelector('.product-selector') as HTMLElement;
+        const selector = document.getElementById('product-selector-wrapper');
         if (title) title.style.display = 'block';
         if (desc) desc.style.display = 'block';
         if (selector) selector.style.display = 'flex';
+        // @ts-ignore
+        if (window.lucide) window.lucide.createIcons();
     }
+
+    function openProductVersions(productKey: string) {
+        if (!downloadData || !downloadData.products || !downloadData.products[productKey]) return;
+        currentProductKey = productKey;
+        const product = downloadData.products[productKey];
+
+        if (product.versions && product.versions.length > 0) {
+            // Hide product selection elements
+            const title = document.getElementById('modal-title-select');
+            const desc = document.getElementById('modal-desc-select');
+            const selector = document.getElementById('product-selector-wrapper');
+            if (title) title.style.display = 'none';
+            if (desc) desc.style.display = 'none';
+            if (selector) selector.style.display = 'none';
+
+            // Update title with product name
+            const vProductName = document.getElementById('versions-product-name');
+            if (vProductName) vProductName.textContent = product.name;
+
+            if (versionsContainer) {
+                versionsContainer.innerHTML = product.versions.map((v, idx) => {
+                    const iconName = idx === 0 ? 'package' : 'copy';
+                    const tagBadge = v.tag ? `<span class="version-tag-pill">${v.tag}</span>` : '';
+                    const subText = v.sublabel || `${v.size} • Safe & Secure`;
+
+                    return `
+                        <button class="btn btn-block version-btn" 
+                                data-link="${v.link}" data-file="${v.filename}" data-size="${v.size}" data-name="${product.name}">
+                            <div class="btn-icon">
+                                <i data-lucide="${iconName}" class="w-5 h-5"></i>
+                            </div>
+                            <div class="version-info-col">
+                                <div class="version-label-row">
+                                    <span class="version-btn-label">${v.label}</span>
+                                    ${tagBadge}
+                                </div>
+                                <span class="version-btn-sublabel">${subText}</span>
+                            </div>
+                            <div class="version-btn-meta">
+                                <span class="version-size-badge">${v.size}</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-white/40"></i>
+                            </div>
+                        </button>
+                    `;
+                }).join('');
+
+                // @ts-ignore
+                if (window.lucide) window.lucide.createIcons();
+
+                versionsContainer.querySelectorAll('.version-btn').forEach(vBtn => {
+                    vBtn.addEventListener('click', (e) => {
+                        const target = (e.currentTarget as HTMLElement);
+                        showFinalStep(target.dataset.name || "", target.dataset.file || "", target.dataset.size || "", target.dataset.link || "");
+                    });
+                });
+            }
+
+            if (versionSelector) versionSelector.style.display = 'block';
+            // @ts-ignore
+            if (window.lucide) window.lucide.createIcons();
+        } else if (product.link) {
+            showFinalStep(product.name, product.filename || "", product.size || "", product.link);
+        }
+    }
+
+    triggers.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                resetModal();
+
+                const targetProduct = (btn as HTMLElement).dataset.product;
+                if (targetProduct) {
+                    openProductVersions(targetProduct);
+                }
+            }
+        });
+    });
 
     productBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const productKey = (btn as HTMLElement).dataset.product;
-            if (!productKey || !downloadData.products[productKey]) return;
-            const product = downloadData.products[productKey];
-
-            if (product.versions) {
-                // Hide product selection elements
-                const title = document.getElementById('modal-title-select');
-                const desc = document.getElementById('modal-desc-select');
-                const selector = document.querySelector('.product-selector') as HTMLElement;
-                if (title) title.style.display = 'none';
-                if (desc) desc.style.display = 'none';
-                if (selector) selector.style.display = 'none';
-
-                // Update title with product name
-                const vTitle = document.getElementById('versions-title');
-                if (vTitle) vTitle.innerHTML = `Available versions of <span>${product.name}</span>`;
-
-                if (versionsContainer) {
-                    versionsContainer.innerHTML = product.versions.map(v => `
-                        <button class="btn btn-block version-btn" 
-                                data-link="${v.link}" data-file="${v.filename}" data-size="${v.size}" data-name="${product.name}">
-                            <div class="btn-icon">
-                                <i data-lucide="download-cloud" class="w-5 h-5"></i>
-                            </div>
-                            <div class="flex flex-col items-start">
-                                <span class="text-white font-semibold">${v.label}</span>
-                                <span class="text-xs text-white/40">${v.size} • Safe & Secure</span>
-                            </div>
-                            <i data-lucide="chevron-right" class="ml-auto w-4 h-4 text-white/20"></i>
-                        </button>
-                    `).join('');
-
-                    // Re-run lucide icons for the new elements
-                    // @ts-ignore
-                    if (window.lucide) window.lucide.createIcons();
-
-                    versionsContainer.querySelectorAll('.version-btn').forEach(vBtn => {
-                        vBtn.addEventListener('click', (e) => {
-                            const target = e.currentTarget as HTMLElement;
-                            showFinalStep(target.dataset.name || "", target.dataset.file || "", target.dataset.size || "", target.dataset.link || "");
-                        });
-                    });
-                }
-                if (versionSelector) versionSelector.style.display = 'block';
-            } else if (product.link) {
-                showFinalStep(product.name, product.filename || "", product.size || "", product.link);
+            if (productKey) {
+                openProductVersions(productKey);
             }
         });
     });
 
     backBtn?.addEventListener('click', () => {
+        resetModal();
+    });
+
+    backToVersionsBtn?.addEventListener('click', () => {
+        if (currentProductKey) {
+            if (initialContent) initialContent.style.display = 'none';
+            if (selectionContent) selectionContent.style.display = 'block';
+            openProductVersions(currentProductKey);
+            return;
+        }
         resetModal();
     });
 
@@ -322,6 +374,8 @@ function initDownloadLogic() {
         setText('modal-filesize', size);
         setText('start-step-download', "Start Download");
         selectedLink = link;
+        // @ts-ignore
+        if (window.lucide) window.lucide.createIcons();
     }
 
     startBtn?.addEventListener('click', () => {

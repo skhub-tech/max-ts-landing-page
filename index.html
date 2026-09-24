@@ -299,9 +299,14 @@
                     <h2 class="text-3xl md:text-5xl font-bold mb-6" id="cta-title">Ready to upgrade?</h2>
                     <p class="text-lg text-white/70 mb-8 max-w-xl mx-auto" id="cta-desc">Join millions of users and
                         start your premium Instagram experience today.</p>
-                    <button class="btn btn-primary btn-lg download-trigger" id="cta-btn">
-                        <i data-lucide="download" class="w-6 h-6 mr-2"></i> Download InstaMax Now
-                    </button>
+                    <div class="cta-actions">
+                        <button class="btn btn-primary btn-lg download-trigger" data-product="instafuse" id="cta-btn">
+                            <i data-lucide="zap" class="w-5 h-5 mr-2"></i> Download InstaFuse Now
+                        </button>
+                        <button class="btn btn-outline btn-lg download-trigger" data-product="instamax" id="cta-btn-max">
+                            <i data-lucide="smartphone" class="w-5 h-5 mr-2"></i> Download InstaMax
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -336,22 +341,65 @@
                     Select Product</h2>
                 <p id="modal-desc-select" class="text-gray-400 mb-6">Choose which version you'd like to install.</p>
 
-                <div class="product-selector">
-                    <button class="btn btn-outline btn-block mb-3 product-btn" data-product="instamax">
-                        <i data-lucide="smartphone" class="w-5 h-5 mr-2"></i> Download InstaMax
-                    </button>
-                    <button class="btn btn-outline btn-block product-btn" data-product="instafuse">
-                        <i data-lucide="zap" class="w-5 h-5 mr-2"></i> Download InstaFuse
-                    </button>
+                <div class="product-selector" id="product-selector-wrapper">
+                    <!-- InstaFuse Section (First / Recommended) -->
+                    <div class="product-section product-section-primary">
+                        <div class="product-section-header">
+                            <span class="product-section-title">Latest Release</span>
+                            <span class="badge-tag badge-recommended"><i data-lucide="sparkles" class="w-3 h-3"></i> Recommended</span>
+                        </div>
+                        <button class="product-card-btn product-btn" data-product="instafuse" id="btn-select-instafuse">
+                            <div class="product-card-icon bg-gradient-fuse">
+                                <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-card-title-row">
+                                    <span class="product-card-name" id="instafuse-card-name">InstaFuse</span>
+                                    <span class="product-card-badge">v5.1</span>
+                                </div>
+                                <p class="product-card-desc" id="instafuse-card-desc">Advanced media downloader, ghost mode & privacy tools.</p>
+                                <span class="product-card-action">Select Package (Original / Clone) <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i></span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Modal Section Divider -->
+                    <div class="modal-section-divider">
+                        <span>OR SELECT EDITION</span>
+                    </div>
+
+                    <!-- InstaMax Section (Separate Section) -->
+                    <div class="product-section product-section-secondary">
+                        <div class="product-section-header">
+                            <span class="product-section-title">InstaMax Edition</span>
+                            <span class="badge-tag badge-classic">Classic</span>
+                        </div>
+                        <button class="product-card-btn product-btn" data-product="instamax" id="btn-select-instamax">
+                            <div class="product-card-icon bg-gradient-max">
+                                <i data-lucide="smartphone" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div class="product-card-body">
+                                <div class="product-card-title-row">
+                                    <span class="product-card-name" id="instamax-card-name">InstaMax</span>
+                                    <span class="product-card-badge">v15.0</span>
+                                </div>
+                                <p class="product-card-desc" id="instamax-card-desc">The ultimate Instagram mod with privacy & downloader.</p>
+                                <span class="product-card-action">Select Version (Unclone / Clone) <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i></span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
-                <div id="version-selector"
-                    style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <p id="versions-title" class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
-                        Available Versions:</p>
-                    <div id="versions-container"></div>
-                    <button id="back-to-products" class="text-xs text-gray-500 mt-4 hover:text-white transition-colors">
-                        <i data-lucide="arrow-left" class="inline w-3 h-3 mr-1"></i> Back to selection
+                <div id="version-selector" style="display: none;">
+                    <div class="version-header-box">
+                        <p id="versions-title" class="versions-header-title">
+                            Available versions of <span id="versions-product-name"></span>
+                        </p>
+                        <p class="versions-header-subtitle">Choose between Original (Unclone) or Clone package:</p>
+                    </div>
+                    <div id="versions-container" class="versions-container-list"></div>
+                    <button id="back-to-products" class="back-link-btn">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-1.5"></i> Back to selection
                     </button>
                 </div>
             </div>
@@ -381,6 +429,9 @@
                 <p class="modal-hint" id="modal-hint"><!-- Injected --></p>
                 <button class="btn btn-primary btn-block" id="start-step-download">
                     <!-- Injected -->
+                </button>
+                <button id="back-to-versions" class="back-link-btn" style="margin-top: 1rem; width: 100%; justify-content: center;">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-1.5"></i> Change Version
                 </button>
             </div>
 
