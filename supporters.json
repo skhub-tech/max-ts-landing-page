@@ -1,0 +1,21 @@
+{
+  "title": "Supporters",
+  "subtitle": "Community YouTube Channels",
+  "message": "Huge thanks to all creators and supporters making videos, sharing guides, and supporting InstaFuse! Tap any channel below to visit & subscribe.",
+  "supporters": [
+    {
+      "name": "Sahitya Tech",
+      "description": "Official Channel • Mod Updates & Tutorials",
+      "badge": "Official",
+      "youtube_url": "https://www.youtube.com/@sahitya_000",
+      "verified": true
+    },
+    {
+      "name": "Creator Name",
+      "description": "Tech Reviews & InstaFuse Guides",
+      "badge": "Creator",
+      "youtube_url": "https://www.youtube.com/@channel_handle",
+      "verified": true
+    }
+  ]
+}
