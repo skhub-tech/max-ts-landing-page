@@ -1,6 +1,6 @@
 {
     "adLink": "https://intermediategillsevent.com/p5pxbfuj?key=90cc97de91b868633d518a18d25481d0",
-    "fuse_version": "v5.4",
+    "fuse_version": "v5.5",
     "products": {
         "instafuse": {
             "name": "InstaFuse",
@@ -12,17 +12,17 @@
                     "label": "Original Package Download",
                     "sublabel": "Original Package (Unclone)",
                     "tag": "Original",
-                    "link": "https://www.mediafire.com/file/cyeej3kus1jbtxg/InstaFuse_v5.4fixed.apk/file",
-                    "filename": "InstaFuse_Original_{fuse_version}.apk",
-                    "size": "160.5 MB"
+                    "link": "https://www.mediafire.com/file/u74vvvuqliirc51/InstFuse_v5.5_orignal_pkg.apk/file",
+                    "filename": "InstaFuse_Original_v5.5.apk",
+                    "size": "180.5 MB"
                 },
                 {
                     "label": "Clone Package Download",
                     "sublabel": "Clone Package (Dual App)",
                     "tag": "Clone",
-                    "link": "https://www.mediafire.com/file/cyeej3kus1jbtxg/InstaFuse_v5.4fixed.apk/file",
-                    "filename": "InstaFuse_Clone_{fuse_version}.apk",
-                    "size": "160.5 MB"
+                    "link": "https://www.mediafire.com/file/ie2hyf5f7ip69sd/InstaFuse_v5.5_clone.apk/file",
+                    "filename": "InstaFuse_v5.5_clone.apk",
+                    "size": "180.5 MB"
                 }
             ]
         },
